@@ -4,6 +4,13 @@
 
 <%= render 'people/list', people: @course.students %>
 
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
 <br>
 
-<%= link_to 'New Student', new_course_enrollment_path(course_id: @course.id) %>
+<%= link_to 'Enroll Existing Student', course_enroll_existing_path(course_id: @course.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :class => "btn btn-primary"} %>
+<%= link_to 'Enroll New Student', course_enroll_new_path(course_id: @course.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :class => "btn btn-primary"} %>
