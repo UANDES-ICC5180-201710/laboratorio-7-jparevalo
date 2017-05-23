@@ -92,7 +92,6 @@ class EnrollmentsController < ApplicationController
         @course = @enrollment.course
       else
         @course = Course.find(params[:course_id])
-        @action = params[:action]
       end
     end
 
